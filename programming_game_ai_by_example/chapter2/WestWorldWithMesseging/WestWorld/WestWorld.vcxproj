@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{198984F8-D514-4361-B982-979F4D11D75F}</ProjectGuid>
+    <RootNamespace>WestWorld</RootNamespace>
+    <ProjectName>WestWorldWithMessage</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="2d\C2DMatrix.h" />
+    <ClInclude Include="2d\geometry.h" />
+    <ClInclude Include="2d\InvertedAABBox2D.h" />
+    <ClInclude Include="2d\Transformations.h" />
+    <ClInclude Include="2d\Vector2D.h" />
+    <ClInclude Include="2d\Wall2D.h" />
+    <ClInclude Include="2d\WallIntersectionTests.h" />
+    <ClInclude Include="Debug\DebugConsole.h" />
+    <ClInclude Include="game\BaseGameEntity.h" />
+    <ClInclude Include="EntityNames.h" />
+    <ClInclude Include="Locations.h" />
+    <ClInclude Include="MessageTypes.h" />
+    <ClInclude Include="Miner.h" />
+    <ClInclude Include="MinerOwnedStates.h" />
+    <ClInclude Include="MinersWifeOwnedStates.h" />
+    <ClInclude Include="MinersWife.h" />
+    <ClInclude Include="fsm\StateMachine.h" />
+    <ClInclude Include="fsm\State.h" />
+    <ClInclude Include="game\EntityManager.h" />
+    <ClInclude Include="misc\autolist.h" />
+    <ClInclude Include="misc\CellSpacePartition.h" />
+    <ClInclude Include="misc\Cgdi.h" />
+    <ClInclude Include="misc\ConsoleUtils.h" />
+    <ClInclude Include="misc\FrameCounter.h" />
+    <ClInclude Include="misc\iniFileLoaderBase.h" />
+    <ClInclude Include="misc\PriorityQueue.h" />
+    <ClInclude Include="misc\Smoother.h" />
+    <ClInclude Include="misc\Stream_Utility_Functions.h" />
+    <ClInclude Include="misc\TypeToString.h" />
+    <ClInclude Include="misc\utils.h" />
+    <ClInclude Include="misc\WindowUtils.h" />
+    <ClInclude Include="msg\MessageDispatcher.h" />
+    <ClInclude Include="msg\Telegram.h" />
+    <ClInclude Include="time\CrudeTimer.h" />
+    <ClInclude Include="time\PrecisionTimer.h" />
+    <ClInclude Include="time\Regulator.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="2d\Vector2d.cpp" />
+    <ClCompile Include="debug\DebugConsole.cpp" />
+    <ClCompile Include="game\BaseGameEntity.cpp" />
+    <ClCompile Include="game\EntityMananger.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MinerOwnedStates.cpp" />
+    <ClCompile Include="Miner.cpp" />
+    <ClCompile Include="MinersWife.cpp" />
+    <ClCompile Include="MinersWifeOwnedStates.cpp" />
+    <ClCompile Include="misc\Cgdi.cpp" />
+    <ClCompile Include="misc\FrameCounter.cpp" />
+    <ClCompile Include="misc\iniFileLoaderBase.cpp" />
+    <ClCompile Include="misc\WindowUtils.cpp" />
+    <ClCompile Include="msg\MessageDispatcher.cpp" />
+    <ClCompile Include="time\CrudeTimer.cpp" />
+    <ClCompile Include="time\PrecisionTimer.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
