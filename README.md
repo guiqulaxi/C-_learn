@@ -1,2 +1,2 @@
 # C-_learn
-c++学习
+programming_game_ai_by_example
