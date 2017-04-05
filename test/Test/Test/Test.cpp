@@ -662,35 +662,6 @@ class ClassC : public ClassA, public ClassB
 public:
 };
 
-//void backtrace(int cur,int n,int m,int sum,vector<int>& res)
-//{
-//	if (is_a_solution(sum, m)){
-//		for (size_t i = 0; i < res.size(); i++)
-//		{
-//			cout << res[i] << " ";
-//		}
-//		cout << endl;
-//	}
-//	
-//	else{
-//		if (sum > n) return;
-//		vector<int>candiantes;
-//		construct_candidates(cur, n, sum, candiantes); 
-//		for (int i = 0; i < candiantes.size(); i++)
-//		{
-//			sum += candiantes[i];
-//			res.push_back(candiantes[i]);
-//			backtrace(candiantes[i], n, m, sum, res);
-//			sum -= candiantes[i];
-//			res.pop_back();
-//		}
-//	}
-//}
-//int next_candiante(int cur,int m,int n ,int *mark){
-//	
-//	if (i > n) return -1;
-//	return i;
-//}
 #include <iostream>
 #include <vector>
 using namespace std;
