@@ -40,6 +40,7 @@ bool Overlapped(const T* ob, const conT& conOb, double MinDistBetweenObstacles =
 //
 //  tags any entities contained in a std container that are within the
 //  radius of the single entity parameter
+//	找到智能体的邻居
 //------------------------------------------------------------------------
 template <class T, class conT>
 void TagNeighbors(const T& entity, conT& ContainerOfEntities, double radius)
@@ -49,7 +50,7 @@ void TagNeighbors(const T& entity, conT& ContainerOfEntities, double radius)
 		curEntity != ContainerOfEntities.end();
 		++curEntity)
 	{
-		//first clear any current tag
+		//先清除当前的标志
 		(*curEntity)->UnTag();
 
 		Vector2D to = (*curEntity)->Pos() - entity->Pos();
@@ -75,6 +76,7 @@ void TagNeighbors(const T& entity, conT& ContainerOfEntities, double radius)
 //  entities, this function checks to see if there is an overlap between
 //  entities. If there is, then the entities are moved away from each
 //  other
+//	确保无重叠
 //------------------------------------------------------------------------
 template <class T, class conT>
 void EnforceNonPenetrationConstraint(const T&    entity,

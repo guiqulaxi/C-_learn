@@ -155,21 +155,25 @@ bool SteeringBehavior::AccumulateForce(Vector2D &RunningTot,
 {
 
 	//calculate how much steering force the vehicle has used so far
+	//计算目前交通工具用了多少力
 	double MagnitudeSoFar = RunningTot.Length();
 
 	//calculate how much steering force remains to be used by this vehicle
+	//计算还有多少剩余力
 	double MagnitudeRemaining = m_pVehicle->MaxForce() - MagnitudeSoFar;
 
 	//return false if there is no more force left to use
 	if (MagnitudeRemaining <= 0.0) return false;
 
 	//calculate the magnitude of the force we want to add
+	//计算想要加的力的大小
 	double MagnitudeToAdd = ForceToAdd.Length();
 
 	//if the magnitude of the sum of ForceToAdd and the running total
 	//does not exceed the maximum force available to this vehicle, just
 	//add together. Otherwise add as much of the ForceToAdd vector is
 	//possible without going over the max.
+	//如果想要加的力小于剩余的力就直接把它加入
 	if (MagnitudeToAdd < MagnitudeRemaining)
 	{
 		RunningTot += ForceToAdd;
@@ -196,7 +200,7 @@ bool SteeringBehavior::AccumulateForce(Vector2D &RunningTot,
 Vector2D SteeringBehavior::CalculatePrioritized()
 {
 	Vector2D force;
-
+	//按优先级加入力
 	if (On(wall_avoidance))
 	{
 		force = WallAvoidance(m_pVehicle->World()->Walls()) *
@@ -724,6 +728,7 @@ Vector2D SteeringBehavior::Flee(Vector2D TargetPos)
 //
 //  This behavior is similar to seek but it attempts to arrive at the
 //  target with a zero velocity
+//  返回当前速度
 //------------------------------------------------------------------------
 Vector2D SteeringBehavior::Arrive(Vector2D     TargetPos,
 	Deceleration deceleration)
@@ -1421,6 +1426,7 @@ Vector2D SteeringBehavior::FollowPath()
 {
 	//move to next target if close enough to current target (working in
 	//distance squared space)
+	//如果在可接受距离内，则移动过去
 	if (Vec2DDistanceSq(m_pPath->CurrentWaypoint(), m_pVehicle->Pos()) <
 		m_dWaypointSeekDistSq)
 	{
@@ -1442,11 +1448,13 @@ Vector2D SteeringBehavior::FollowPath()
 //
 //  Produces a steering force that keeps a vehicle at a specified offset
 //  from a leader vehicle
+// 保持一定偏移的追逐
 //------------------------------------------------------------------------
 Vector2D SteeringBehavior::OffsetPursuit(const Vehicle*  leader,
 	const Vector2D offset)
 {
 	//calculate the offset's position in world space
+	//计算世界空间偏移位置
 	Vector2D WorldOffsetPos = PointToWorldSpace(offset,
 		leader->Heading(),
 		leader->Side(),
@@ -1457,6 +1465,7 @@ Vector2D SteeringBehavior::OffsetPursuit(const Vehicle*  leader,
 	//the lookahead time is propotional to the distance between the leader
 	//and the pursuer; and is inversely proportional to the sum of both
 	//agent's velocities
+	//预期时间怎么都是按最大速度
 	double LookAheadTime = ToOffset.Length() /
 		(m_pVehicle->MaxSpeed() + leader->Speed());
 

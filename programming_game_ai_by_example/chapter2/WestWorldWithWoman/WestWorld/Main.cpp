@@ -3,6 +3,14 @@
 #include "MinersWife.h"
 #include "misc/ConsoleUtils.h"
 #include "EntityNames.h"
+class A
+{
+public:
+	static int a;
+
+};
+
+
 int main()
 {
 	//create a miner

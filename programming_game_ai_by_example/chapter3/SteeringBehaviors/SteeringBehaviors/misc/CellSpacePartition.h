@@ -81,6 +81,7 @@ private:
 
   //given a position in the game space this method determines the           
   //relevant cell's index
+  //根据位置获得cell
   inline int  PositionToIndex(const Vector2D& pos)const;
 
 public:

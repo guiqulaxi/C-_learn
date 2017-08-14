@@ -20,10 +20,10 @@
 class Path
 {
 private:
-
+	//路径
 	std::list<Vector2D>            m_WayPoints;
 
-	//points to the current waypoint
+	//当前的路径点
 	std::list<Vector2D>::iterator  curWaypoint;
 
 	//flag to indicate if the path should be looped
